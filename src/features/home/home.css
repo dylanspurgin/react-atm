@@ -1,0 +1,25 @@
+.home {
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    margin-bottom: 20vh;
+}
+button {
+    border: solid 1px black;
+    padding: 20px;
+    border-radius: 10px;
+
+    display: block;
+    width: 100%;
+}
+
+ul {
+    list-style: none none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
