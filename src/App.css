@@ -1,17 +1,17 @@
 body {
-  background-color: #ADF5FF;
+  background-color: #0075A2;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #D55672;
+  color: #1d241f;
 }
 .app {
   width: 800px;
   height: 80vh;
   
-  background-color: #0075A2;
+  background-color: lightgray;
   border-radius: 25px;
   padding: 20px;
   margin-top: 20px;
-  box-shadow:         inset 0 0 10px #000000;
+  box-shadow: inset 0 0 10px #000000;
 }

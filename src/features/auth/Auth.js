@@ -22,7 +22,8 @@ function Auth (props) {
         {props.user?.id && (
             <Navigate to="/home" replace={true} />
         )}
-        <h1>Welcome to See Me Cu</h1>
+        <h1>MOON CREDIT UNION</h1>
+        <h2>Please Login</h2>
         <h4>Please enter your PIN to continue (1234)</h4>
         <form onSubmit={onSubmit}>
             <input type="password"

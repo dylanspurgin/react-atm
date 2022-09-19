@@ -32,7 +32,7 @@ function createExtraActions() {
                             token: 'MY-SUPER-SECRET-JWT-TOKEN',
                             user: {
                                 id: 1,
-                                name: 'Dylan Spurgin'
+                                name: 'Auntie Em'
                             },
                         })
                     } else {
