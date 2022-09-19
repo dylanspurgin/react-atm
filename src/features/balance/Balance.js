@@ -10,7 +10,7 @@ function Balance (props) {
 
     useEffect(() => {
         dispatch(accountActions.getBalance())
-    }, [dispatch, props.balance])
+    }, [])
 
     const numberFormat = (value) =>
         new Intl.NumberFormat('en-US', {
