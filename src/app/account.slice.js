@@ -7,10 +7,16 @@ const initialState = {
     balance: 0,
     error: null
 };
-const reducers = {};
+
 const extraActions = createExtraActions();
 const extraReducers = createExtraReducers();
+const reducers = {
+    resetActionState(state) {
+        state.status = 'idle'
+    }
+}
 const slice = createSlice({ name, initialState, reducers, extraReducers });
+
 
 // EXPORT
 export const accountActions = { ...slice.actions, ...extraActions };
@@ -25,7 +31,7 @@ function createExtraActions() {
     return {
         getBalance: getBalance(),
         deposit: deposit(),
-        withdraw: withdraw()
+        withdraw: withdraw(),
     };
 
     function getBalance() {
@@ -89,7 +95,7 @@ function createExtraReducers() {
     return {
         ...deposit(),
         ...getBalance(),
-        ...withdraw()
+        ...withdraw(),
     }
 
     function deposit() {
@@ -101,7 +107,6 @@ function createExtraReducers() {
             [fulfilled]: (state, action) => {
                 state.balance = action.payload.balance;
                 state.status = 'deposited';
-                console.debug('Deposit complete', state.balance);
             },
             [rejected]: (state, action) => {
                 state.error = action.payload.error;

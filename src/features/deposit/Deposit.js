@@ -23,9 +23,10 @@ function Deposit (props) {
 
   return (
     <div>
-      {!props.token && (
+        {!props.token && (
           <Navigate to="/" replace={true} />
         )}
+
         <h1>Deposit</h1>
         {props.error && <p>{props.error}</p>}
         {state.status === 'new' && props.depositStatus !== 'deposited' && (
@@ -38,14 +39,15 @@ function Deposit (props) {
             <button onClick={goBack}>Back</button>
         </form>
         )}
-        {state.backClicked && (
-          <Navigate to="/home" />
-        )}
+        
         {props.depositStatus === 'deposited' && (
           <div>
             <h1>Success</h1>
             <button onClick={goBack}>Back</button>
           </div>
+        )}
+        {state.backClicked && (
+          <Navigate to="/home" />
         )}
     </div>
   );

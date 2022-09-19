@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { connect, useDispatch } from 'react-redux'
 import { Navigate } from "react-router-dom"
+import { accountActions } from '../../app/account.slice'
 
 function Home (props) {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(accountActions.resetActionState())
+    })
 
     const [state, setState] = useState( {buttonClicked: ''} )
 
