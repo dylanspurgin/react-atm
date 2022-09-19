@@ -25,7 +25,7 @@ function createExtraActions() {
     function login() {
         return createAsyncThunk(
             `auth/login`,
-            async ({ pin }, { rejectWithValue }) => await new Promise((resolve, reject) => {
+            async (pin, { rejectWithValue }) => await new Promise((resolve, reject) => {
                 setTimeout(() => {
                     if (pin === '1234') {
                         resolve({

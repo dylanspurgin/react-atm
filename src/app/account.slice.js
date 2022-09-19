@@ -99,7 +99,7 @@ function createExtraReducers() {
     }
 
     function deposit() {
-        var { pending, fulfilled, rejected } = extraActions.deposit;
+        const { pending, fulfilled, rejected } = extraActions.deposit;
         return {
             [pending]: (state) => {
                 state.error = null;
@@ -115,7 +115,7 @@ function createExtraReducers() {
     }
 
     function getBalance() {
-        var { pending, fulfilled, rejected } = extraActions.getBalance;
+        const { pending, fulfilled, rejected } = extraActions.getBalance;
         return {
             [pending]: (state) => {
                 state.status = 'loading';
@@ -133,7 +133,7 @@ function createExtraReducers() {
     }
 
     function withdraw() {
-        var { pending, fulfilled, rejected } = extraActions.withdraw;
+        const { pending, fulfilled, rejected } = extraActions.withdraw;
         return {
             [pending]: (state) => {
                 state.status = 'loading';

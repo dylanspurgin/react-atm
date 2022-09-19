@@ -5,20 +5,14 @@ import { accountActions } from '../../app/account.slice'
 
 function Deposit (props) {
 
-  const [state, setState] = useState({amount: '', status: 'new', backClicked: false})
+  const [amount, setAmount] = useState( '' )
+  const [backClicked, setBackClicked] = useState( false )
+  
   const dispatch = useDispatch()
 
-  const onChange = (e) => {
-      setState(prev => ({...prev, amount: e.target.value}))
-  }
-  
   const onSubmit = (e) => {
     e.preventDefault()
-    dispatch(accountActions.deposit({amount: parseFloat(state.amount)}))
-  }
-
-  const goBack = () => {
-    setState(prev => ({...prev, backClicked: true}))
+    dispatch(accountActions.deposit({amount: parseFloat(amount)}))
   }
 
   return (
@@ -29,24 +23,24 @@ function Deposit (props) {
 
         <h1>Deposit</h1>
         {props.error && <p>{props.error}</p>}
-        {state.status === 'new' && props.depositStatus !== 'deposited' && (
+        {props.depositStatus !== 'deposited' && (
         <form onSubmit={onSubmit}>
             <input type="number"
-                value={state.amount}
-                onChange={onChange}
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
                 required />
             <button type="submit">Confirm</button>
-            <button onClick={goBack}>Back</button>
+            <button onClick={() => setBackClicked(true)}>Back</button>
         </form>
         )}
         
         {props.depositStatus === 'deposited' && (
           <div>
             <h1>Success</h1>
-            <button onClick={goBack}>Back</button>
+            <button onClick={() => setBackClicked(true)}>Back</button>
           </div>
         )}
-        {state.backClicked && (
+        {backClicked && (
           <Navigate to="/home" />
         )}
     </div>

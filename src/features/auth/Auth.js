@@ -4,31 +4,27 @@ import { connect, useDispatch } from "react-redux"
 import { Navigate } from "react-router-dom"
 
 function Auth (props) {
-    const [state, setState] = useState({pin: ''})
+    const [pin, setPin] = useState('')
     const dispatch = useDispatch()
-
-    const onChange = (e) => {
-        setState(prev => ({...prev, pin: e.target.value}))
-    }
 
     const onSubmit = (e) => {
         e.preventDefault()
-        dispatch(authActions.login(state))
+        dispatch(authActions.login(pin))
     }
 
   return (
     <div>
-        {props.error && <p>{props.error}</p>}
         {props.user?.id && (
             <Navigate to="/home" replace={true} />
         )}
         <h1>MOON CREDIT UNION</h1>
         <h2>Please Login</h2>
         <h4>Please enter your PIN to continue (1234)</h4>
+        {props.error && <p>{props.error}</p>}
         <form onSubmit={onSubmit}>
             <input type="password"
-                value={state.pin}
-                onChange={onChange}
+                value={pin}
+                onChange={(e) => setPin(e.target.value)}
                 required />
             <button type="submit">Continue</button>
         </form>
